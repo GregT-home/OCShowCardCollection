@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface FishHand : NSObject
+
+@property (nonatomic, strong, readonly) NSMutableArray *cards;
+
 //+ (instancetype) newWithStackedCards:(NSMutableArray *)stackedHandCards;
 - (NSNumber *) numberOfCards;
 - (NSNumber *) rankCount:(NSString *)targetRank;

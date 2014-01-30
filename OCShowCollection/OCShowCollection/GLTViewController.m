@@ -101,6 +101,7 @@
  //   UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FishCardCell" forIndexPath:indexPath];
     FishCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FishCardCell" forIndexPath:indexPath];
     
+    FishCard *card = self.hand.cards[indexPath.row];
     cell.backgroundColor = [UIColor whiteColor];
 
     FishCardCell *fishCard = [self.fishCards objectAtIndex:indexPath.row];
