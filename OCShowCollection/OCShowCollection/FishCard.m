@@ -38,7 +38,7 @@
 }
 
 -(NSString *) toFileBaseName {
-    return [NSString stringWithFormat:@"%@%@", self.suit, self.rank];
+    return [[NSString stringWithFormat:@"%@%@", self.suit, self.rank] lowercaseString];
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "FishCard.h"
 
 @interface OCShowCollectionTests : XCTestCase
 
@@ -26,9 +27,9 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)testExample {
+    FishCard *exampleCard = [FishCard newWithRank:@"3" suit:@"H"];
+    XCTAssertEqualObjects([exampleCard toFileBaseName], @"h3", @"Card image name should be created with abbrevs.");
 }
 
 @end
