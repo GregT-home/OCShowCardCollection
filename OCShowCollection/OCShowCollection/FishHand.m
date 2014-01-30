@@ -22,14 +22,12 @@
 
 @implementation FishHand
 
-- (instancetype)initWithEmptyHand {
+- (id)init {
     self = [super init];
-    if (self)
-        self.cards = [NSMutableArray new];
+    if (self) {
+        _cards = [NSMutableArray new];
+    }
     return self;
-}
-+ (instancetype)newWithEmptyHand {
-    return [[self alloc] initWithEmptyHand];
 }
 
 + (instancetype)newWithStackedCards:(NSMutableArray *)stackedHandCards {
