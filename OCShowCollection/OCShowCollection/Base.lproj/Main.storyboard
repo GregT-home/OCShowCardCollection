@@ -20,7 +20,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FishCardCell" id="KoE-ZO-gT6">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FishCardCell" id="KoE-ZO-gT6" customClass="FishCardCell">
                                 <rect key="frame" x="0.0" y="0.0" width="71" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -35,8 +35,15 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <size key="customSize" width="71" height="96"/>
+                                <connections>
+                                    <outlet property="imageView" destination="33F-Cz-B5A" id="xn5-9x-eGo"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="BYZ-38-t0r" id="nHz-jp-BYk"/>
+                            <outlet property="delegate" destination="BYZ-38-t0r" id="ClO-wK-aBF"/>
+                        </connections>
                     </collectionView>
                     <connections>
                         <outlet property="collectionView" destination="tSO-H1-cBQ" id="jmn-7l-7h5"/>

@@ -16,7 +16,6 @@
 @interface FishCardCell : UICollectionViewCell
 
 @property FishCard *card;
-@property (nonatomic, strong) IBOutlet UIImage *cardImage;
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 
 @end
