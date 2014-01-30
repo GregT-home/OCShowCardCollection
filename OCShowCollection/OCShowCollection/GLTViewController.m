@@ -13,7 +13,6 @@
 @interface GLTViewController () <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 // @property (nonatomic, strong) NSMutableDictionary *gameSections;
 @property (nonatomic, strong) FishHand *hand;
-@property (nonatomic, strong) NSMutableArray *fishCards;
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
@@ -44,17 +43,12 @@
     //fishCards is the array of cards we will be displaying
     //hand is our hand.  It may be the same as fishCards, so we may be optimizing later
     self.hand = [FishHand new];
-    [self loadHandIntoDisplay];
-    
-    self.fishCards = [NSMutableArray new];
+    [self loadCardsIntoHand];
     
     // self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_cork"]];
-    
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"FishCardCell"];
-    [self.collectionView reloadData];
 }
 
-- (void)loadHandIntoDisplay {
+- (void)loadCardsIntoHand {
     FishDeck *deck = [FishDeck newWithCards];
     //    [deck shuffle];
     // FishHand *hand = [FishHand new];
@@ -63,12 +57,7 @@
     for (int i = 0; i < 52; i++) {
         FishCard *card;
         card = [deck give_card];
-
-        FishCardCell *displayCard = [FishCardCell new];
-        displayCard.cardImage = [UIImage imageNamed: [card toFileBaseName]];
         
-        displayCard.card = card;
-        [self.fishCards addObject:displayCard];
         [self.hand receiveCards:@[card]];
 //        NSLog(@"card = %@, image = %@.png", [card description], [card toFileBaseName]);
     }
@@ -102,11 +91,9 @@
     FishCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FishCardCell" forIndexPath:indexPath];
     
     FishCard *card = self.hand.cards[indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:[card toFileBaseName]];
     cell.backgroundColor = [UIColor whiteColor];
 
-    FishCardCell *fishCard = [self.fishCards objectAtIndex:indexPath.row];
-//    cell.textLabel.text = fishCard.itemName;
-    cell.imageView.image = [UIImage imageNamed:[fishCard.card toFileBaseName]];
     return cell;
 }
 
