@@ -62,7 +62,7 @@
     return [self rankCount:rank] > 0;
 }
 
-- (void)receiveCards:(NSMutableArray *)newCards{
+- (void)receiveCards:(NSArray *)newCards{
     [self.cards addObjectsFromArray:newCards];
 }
 

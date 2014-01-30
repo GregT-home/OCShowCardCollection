@@ -67,9 +67,9 @@
         FishCardCell *displayCard = [FishCardCell new];
         displayCard.cardImage = [UIImage imageNamed: [card toFileBaseName]];
         
-        [self.hand receiveCards: [NSMutableArray arrayWithObjects:card, nil]];
         displayCard.card = card;
         [self.fishCards addObject:displayCard];
+        [self.hand receiveCards:@[card]];
 //        NSLog(@"card = %@, image = %@.png", [card description], [card toFileBaseName]);
     }
 }
